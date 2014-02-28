@@ -1,0 +1,46 @@
+body {
+  background-color:#000;
+  color:#ddd;
+  font-family:'Vollkorn', serif;
+  font-size:4em;
+  letter-spacing:-0.04em;
+  margin:0;
+  padding:50px 75px 0 75px;
+}
+
+a {
+  color:#ff5842;
+}
+
+img {
+  float:left;
+  position:absolute;
+  right:0;
+  bottom:0;
+}
+
+div {
+  word-wrap:break-word;
+}
+
+#bg-image {
+  background-size:cover;
+  background-position:center center;
+  opacity:.35;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:-10;
+}
+
+@media only screen and (device-width: 320px) {
+  /* Style adjustments for viewports 520px and lower */
+  body { font-size:6em; }
+}
+
+@media only screen and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Style adjustments for viewports 520px and lower */
+  body { font-size:6em; }
+}

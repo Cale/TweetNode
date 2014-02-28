@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <head>
+    <title>TwitterNode</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/node-twitter-stream.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script>
+      var socket = io.connect('http://localhost:4040');
+      socket.on('stream', function(tweet, user, avatar, media) {
+        $( "#tweetd" ).fadeOut( function(){
+          $( "#bg-image" ).css( "background-image","");
+          $( "#tweetd" ).empty();
+          $('#tweetd').prepend('<div class="image"></div><div><img src="'+avatar+'" width="48" height="48"><a href="http://twitter.com/'+user+'" target="_blank">@'+user+'</a> '+tweet+'</div>');
+          if ( media ) {
+            $( "#bg-image" ).css( "background-image","url("+media+")");
+          }
+          $( "#tweetd" ).fadeIn();
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div id="tweetd">Waiting for Tweets...</div>
+    <div id="bg-image"></div>
+  </body>
+</html>
